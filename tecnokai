@@ -1,0 +1,66 @@
+import processing.sound.*;
+WhiteNoise noise;
+
+float x0, y0 ; // posição x, posição y
+float px0, py0; // posição x anterior, posição y anterior
+float x1, y2; 
+float px1, py2;
+float x3, y3;
+float px3, py3;
+
+
+void setup() {
+ 
+  noise = new WhiteNoise(this); // aqui cria-se um gerador de som
+  noise.play(); 
+  
+  size(1080, 680); //  o tamanho da tela em pixels. largura X altura
+  
+  x0 = width/2;  // define a posição inicial no eixo x
+  y0 = height/4;  // define a posição inicial no eixo y
+  x1= width/3;
+  y2= height/2;
+  x3= width/4;
+  y3= height/2;
+  
+  PFont fonte; // criar um nome para a fonte
+  fonte = loadFont ("Bauhaus93-48.vlw"); // carrega a fonte construída nas ferramentas
+  textFont (fonte); // mostra que o texto terá a fonte escolhida
+  
+   text("A poesia é -", 10, 20, 100, 100); // aqui é o texto,  usado e configurado lá embaixo.
+   fill (#FE6301);
+   
+   text("ruído revolto", 30, 40, 110, 110); 
+   fill (#FE5645);  
+  
+   text ("caxixé livre", 50, 60, 120, 120);
+   fill (#FEA965);
+  }
+
+void draw() {
+     background (155, 33, 0); // background na frente da programação sobrepõe animação
+     textSize (55);
+
+     px0 = x0; // guarda a posição x na variável px
+     py0 = y0; // guarda a posição y na variável py
+     x0 = x0 + random(-3, 3);  // atualiza a posição x sorteando um valor
+     y0 = y0 + random(-2, 2); // atualiza a posição y sorteando um valor
+     text ("A poesia é -", px0, py0, x0, y0); // desenha o texto entre os pontos (px, py) e (x, y)
+     fill (#FE6301);
+      
+      px1 = x1;
+      py2 = y2;
+      x1 = x1 + random (-1, 1);
+      y2 = y2 + random (-3, 3);
+      text ("ruído revolto", x1,y2, px1, py2);
+      fill (#FE5645);
+      
+      px3 = x3;
+      py3 = y3;
+      x3 = x3 + random (-3,3);
+      y3 = y3 + random (-2, 2);
+      text ("caxixé livre", x3, y3, px3, py3);
+      fill (#FEA965); 
+    
+   }
+    
